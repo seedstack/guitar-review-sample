@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face{
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Regular.otf') format("opentype");
+  font-weight: 400;
+  font-style: normal;    
+}
+
+@font-face{
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Bold.otf') format("opentype");
+  font-weight: 700;
+  font-style: normal;    
+}
+
+.starChecked {
+    color: orange;
+  }
+body{
+  margin:0;
+}
+
+.action-button{
+  font-family: "Montserrat", sans-serif;
+  background: #457b9d;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  width: fit-content;
+  padding: 3px 10px;
+  transition: opacity 0.3s ease 0s;
+}
+.action-button:hover{
+  opacity: 0.7;
+}
+
+.validate-button{
+  font-family: "Montserrat", sans-serif;
+  background: #57cc99;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  width: fit-content;
+  padding: 3px 10px;
+  transition: opacity 0.3s ease 0s;
+}
+.validate-button:hover{
+  opacity: 0.7;
+}
+
+.danger-button{
+  font-family: "Montserrat", sans-serif;
+  background: #e63946;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 50px;
+  width: fit-content;
+  padding: 3px 10px;
+  transition: opacity 0.3s ease 0s;
+}
+.danger-button:hover{
+  opacity: 0.7;
+}
+
+.admin::after{
+  content: ' # Administrator feature #';
+  color: #e63946;
+}

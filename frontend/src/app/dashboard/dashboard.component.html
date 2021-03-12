@@ -1,0 +1,20 @@
+<h1 class="top-products-title">Last 6 Strings Reviews gear</h1>
+<section class="top-products-introduction">
+  <p>Hello music fans !</p>
+  <p>Here are the last guitars and basses gear submitted to reviews !</p>
+  <p>If you don't own this gear, this would help to make your choice.</p>
+  <p>Already jaming with that cool stuff ? Please leave a review !</p>
+</section>
+<hr class="top-products-delimiter">
+<section class="top-products-all">
+  <div *ngFor="let product of products" class="top-products-product">
+    <a class="top-products-product-title" routerLink="/detail/{{product.id}}"><h2>{{product.title}}</h2></a>    
+    <div class="top-products-product-image-categories">
+      <img src="{{baseUrl}}/products/{{product.id}}/image" style="width: 85px;" alt="{{product.title}}">
+      <ul class="top-products-product-categories">
+        <li *ngFor="let cat of product.categories">{{cat}}</li>
+      </ul>
+    </div>
+    <p>{{product.description}}</p>
+  </div>
+</section>

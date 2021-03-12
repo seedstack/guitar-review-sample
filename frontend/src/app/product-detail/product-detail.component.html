@@ -1,0 +1,92 @@
+<div *ngIf="product">
+    <h2 class="product-product-title">{{product.title | uppercase}}</h2>
+    <div class="product-product-id"><small >{{product.id}}</small></div>
+    <div>
+        <ul class="product-categories-list">
+            <li *ngFor="let cat of product.categories" class="product-categories-item"><a routerLink="/products/category/{{cat}}">{{cat}}</a></li>
+        </ul>
+    </div>
+    <hr class="product-separator">
+    <div class="product-product-details">
+        <img src="{{baseUrl}}/products/{{product.id}}/image" alt="{{product.title}}">
+        <div class="product-product-details-description-price">
+            <div class="details-elements">
+                <strong>Description</strong><p>{{product.description}}</p>
+            </div>
+            <div class="details-elements">
+                <strong>Average price</strong><p>{{product.price}}&nbsp;€</p>
+            </div>            
+            <a class="action-button" href="#">Purchase</a>
+        </div>
+    </div>
+    <hr class="product-separator">
+    <div>
+        <h3 class="product-section-title">Add your review</h3>
+        <div class="add-review-element">
+            <div class="add-review-label"><strong>Note :</strong></div>
+            <div class="add-review-input"><app-star-rating [(rating)]="newReview.stars" mode="edit"></app-star-rating></div>
+        </div>
+        <div class="add-review-element">
+            <div class="add-review-label"><strong>Comment :</strong></div>
+            <div class="add-review-input">
+                <textarea [(ngModel)]="newReview.comment" class="form-control" id="reviewComment" placeholder="Please, leave a comment !" rows="4"></textarea>
+            </div>
+        </div>
+        <div class="add-review-element">
+            <a class="action-button" (click)="saveReview(product.id)" id="submitReviewButton" href="#">Add my review !</a>
+        </div>
+    </div>
+    <div  *ngIf="reviews && reviews.length >0" class="product-reviews">
+        <hr class="product-separator">
+        <h3 class="product-section-title">Reviews</h3>
+        <div *ngFor="let review of reviews" class="product-reviews-review">
+            <ul>
+                <li class="review-element"><strong>From :</strong>&nbsp;<a routerLink="/userreviews/{{review.user}}">{{review.userFullName}}</a></li>
+                <li class="review-element"><strong>Note :</strong>&nbsp;<app-star-rating [rating]="review.stars"></app-star-rating></li>
+                <li class="review-element"><strong>Comment :</strong><div class="review-comment"><i class="fas fa-quote-left"></i>&nbsp;{{review.comment}}&nbsp;<i class="fas fa-quote-right"></i></div></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <hr class="product-separator">
+        <h3 class="product-section-title admin">Edit this product</h3>        
+        <div class="product-update-section">
+            <h4 class="product-edit-subtitle">Categories</h4>
+            <div class="editProductAddRemoveCategories">
+                <span *ngFor="let cat of product.categories" class="product-edit-category">{{cat}} <i (click)="removeCat(cat)" class="fa fa-times removeCategoryButton" aria-hidden="true"></i></span>&nbsp;
+                <div *ngIf="missingCategories && missingCategories.length>0" class="product-edit-add-category">
+                    <input class="add-category-missing-list" type="text" [(ngModel)]="selectedCategory" list="datalistOptions" id="availabeCategories" placeholder="Type a category...">
+                    <datalist id="datalistOptions">
+                        <option *ngFor="let cat of missingCategories" value="{{cat.tag}}">{{cat.title}}</option>
+                    </datalist>
+                    <a class="action-button" (click)="addCategoryProduct()" id="addCategory" href="#">Add this category</a>
+                </div>
+            </div>
+        </div>
+        <div class="product-update-section">
+            <h4 class="product-edit-subtitle">Details</h4>
+            <div class="editProductDetails">
+                <div>
+                    <label for="editProductName">Name :</label>
+                    <input [(ngModel)]="product.title" placeholder="title" id="editProductName">
+                </div>
+                <div>                 
+                    <input type="file" (change)="handleFileInput($event.target.files)" class="form-control-file" id="editProductPicture">
+                    <label for="editProductPicture"><i class="fas fa-upload"></i>&nbsp;Upload a gear picture</label>
+                </div>
+                <div>
+                    <label for="editProductDescription" class="form-label">Description :&nbsp;</label>
+                    <textarea [(ngModel)]="product.description" class="form-control" id="editProductDescription" placeholder="Description" rows="3"></textarea>
+                </div>
+                <div>
+                    <label for="editProductPrice" class="form-label">Price ( € ) :&nbsp;</label>
+                    <input [(ngModel)]="product.price" placeholder="price" id="editProductPrice">
+                </div>
+            </div>
+        </div>
+        <div class="editProductButtons">
+            <a class="validate-button" (click)="saveProduct()" href="#">Save this product</a>
+            <a class="danger-button" (click)="deleteProduct()" href="#">Delete this product</a>
+        </div>
+    </div>   
+</div>

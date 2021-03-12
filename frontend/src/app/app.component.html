@@ -1,0 +1,29 @@
+<header>  
+  <img src="../assets/img/logo.png" height="64" alt="6 Strings reviews" class="logo">
+  <nav>
+    <ul class="nav-links">
+      <li>
+        <a routerLink="/dashboard">Last gear</a>
+      </li>
+      <li>
+        <a href="#">Categories</a>
+        <ul class="sub-menu">
+          <li *ngFor="let cat of categories" class="category"><a routerLink="/products/category/{{cat.tag}}">{{cat.title}}</a></li>
+        </ul>
+      </li>
+      <li>
+        <a routerLink="/products">All gear</a>
+      </li>
+    </ul>
+  </nav>
+  <a class="cta" href="#"><button>Contact</button></a>
+</header>
+<section class="main-container">
+  <div class="left-container"></div>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>  
+</section>
+<footer>
+  <small>SeedStack samples - Angular sample</small>
+</footer>
