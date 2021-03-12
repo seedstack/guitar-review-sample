@@ -1,0 +1,30 @@
+logging:
+  level: INFO
+
+application:
+  id: guitar-review-sample
+  basePackages: [ org.seedstack.samples.guitar ]
+  databaseFile: data/database/guitar-review.db
+  imageFolder: data/images/
+
+rest:
+  path: /api
+
+web:
+  cors:
+    enabled: true
+    properties:
+      supportedMethods: GET, POST, HEAD, OPTIONS, PUT, DELETE
+
+jdbc:
+  datasources:
+    appDatasource:
+      url: jdbc:hsqldb:file:${application.databaseFile}
+
+jpa:
+  units:
+    appUnit:
+      datasource: appDatasource
+      properties:
+        hibernate.dialect: org.hibernate.dialect.HSQLDialect
+        hibernate.hbm2ddl.auto: update

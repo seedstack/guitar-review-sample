@@ -7,8 +7,14 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
-back/angular-sample-backend.iml
-back/.idea
-back/target
+
+node_modules/
+
+*.iml
+.idea/
+
+data/database/*.tmp/
+data/database/*.log
