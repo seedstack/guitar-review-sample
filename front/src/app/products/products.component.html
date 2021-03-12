@@ -1,0 +1,40 @@
+<div>
+  <h2 *ngIf="!currentCategory" class="products-title">6 Strings reviews - all gear</h2>
+  <h2 *ngIf="currentCategory != null" class="products-title">6 Strings reviews - <span class="products-catTag">{{currentCategory.tag}}</span> gear</h2>
+  <div *ngIf="currentCategory != null" class="products-category-description">{{currentCategory.title}}</div>
+  <div *ngIf="products && products.length >0">
+    <h3 class="products-subTitle">Products</h3>
+    <div class="products-matchingProducts">
+      <div *ngFor="let product of products" class="products-aProduct">
+        <a routerLink="/detail/{{product.id}}"><i class="fas fa-music products-musicIcon"></i>&nbsp;{{product.title}}</a>
+        <p class="products-productPrice">{{product.price}}</p>
+      </div>
+    </div>
+  </div>  
+  <div *ngIf="!products || products.length == 0" class="products-noProducts">
+    <p>Sorry, no products were found matching this category</p>
+  </div>
+  <div class="products-create">
+    <hr>
+    <h3 class="products-subTitle admin">Create New Product</h3>
+    <small class="products-createNote">Mandatory fields. Other details should be edited once created</small>
+    <div class="products-createDetails">
+      <div class="products-createItem">
+          <label for="createProductTitle">Name :</label>
+          <input [(ngModel)]="newProduct.title" id="createProductTitle" placeholder="Product's title">
+      </div>
+      <div class="products-createItem">
+        <label for="createProductDescription">Description :</label>
+        <textarea [(ngModel)]="newProduct.description" id="createProductDescription" placeholder="Product's description" rows="3"></textarea>
+      </div>
+      <div class="products-createItem">
+        <label for="createProductPrice">Price (€) :</label>
+        <input [(ngModel)]="newProduct.price" id="createProductPrice" placeholder="Av price">
+      </div>
+    </div>
+    <div class="products-createButton">
+      <a class="validate-button" (click)="saveProduct()" href="#">Add a new product</a>
+    </div>
+  </div>
+</div>
+
