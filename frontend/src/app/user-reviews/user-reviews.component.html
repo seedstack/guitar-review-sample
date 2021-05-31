@@ -1,0 +1,12 @@
+<div *ngIf="currentUser">
+    <h3>{{currentUser.fullName}} Reviews</h3>
+    <div *ngIf='userReviews'>
+        <div *ngFor="let usrReview of userReviews">
+            <ul>
+                <li><strong>Product :</strong>&nbsp;<a routerLink="/detail/{{usrReview.product.id}}">{{usrReview.product.title}}</a></li>
+                <li><strong>Note :</strong>&nbsp;{{usrReview.review.stars}} / 5</li>
+                <li><strong>Comment :</strong>&nbsp;{{usrReview.review.comment}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
