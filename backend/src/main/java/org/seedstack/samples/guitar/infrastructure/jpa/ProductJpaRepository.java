@@ -14,6 +14,9 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Stream;
 
+/**
+ * JPA implementation for ProductRepository
+ */
 public class ProductJpaRepository extends BaseJpaRepository<Product, String> implements ProductRepository {
     private static final String CONTAINS_TERM_PATTERN="*%s*";
 

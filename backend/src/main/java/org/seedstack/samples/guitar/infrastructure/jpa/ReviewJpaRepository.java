@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * The Review service implementation
+ * JPA implementation for ReviewRepository
  */
 public class ReviewJpaRepository extends BaseJpaRepository<Review, ReviewId> implements ReviewRepository {
     @Inject

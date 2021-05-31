@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Review resource.
+ * Provides review related API endpoints
+ */
 @Path("reviews")
 public class ReviewResource {
     @Inject

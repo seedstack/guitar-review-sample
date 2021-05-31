@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * Implementation for CategoryService
+ * JPA Implementation for CategoryRepository
  */
 public class CategoryJpaRepository extends BaseJpaRepository<Category, String> implements CategoryRepository {
     @Override

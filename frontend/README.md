@@ -1,27 +1,24 @@
-# AngularSampleFront
+# Guitar review Sample - Frontend #
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+This project is the frontend component of the seedstack's guitar review sample project.
 
-## Development server
+This is an angular based project requesting the seedstack backend.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup ##
 
-## Code scaffolding
+Download required packages with NPM : `npm install`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If the seedstack backend doesn't run locally or doesn't use default web port or API sub-path, update the `src/app/app.module.ts` file and set the BASE_BACKEND_URL constant value with an URL related to the running backend.
 
-## Build
+Ensure the seedstack backend is running.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Just like any Angular application you can run the dev server with the angular client : `ng serve --open`
 
-## Running unit tests
+You can also build the sample with `ng build` and find in the `dist/` directory the production build to run from a web server.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Project structure ##
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Domain classes : In the folder src/app, you'll find `category.ts` / `product.ts` / `review.ts` / `user.ts` classes related to the backend's representation classes. For example, `category.ts` corresponds to the backend's class `CategoryRepresentation` this sample has only one json format for each endpoint, of course, in more complex projects, a single endpoint can have multiple responses objects format, each one, must also be defined on the frontend side.
+- Components : This project uses angular routing. In the src/app directory `dashboard`, `product-detail`, `products`, `user-reviews` are folders containing the target components (class / template /css )of angular routing.
+- The `src/app/services` contains the services executing requests to the backend, these services are injected in the application components
+- `srs/assets` folder contains fonts and images used by the GUI.

@@ -19,6 +19,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Product resources.
+ * Provide products related API endpoints
+ */
 @Path("products")
 public class ProductsResource {
 

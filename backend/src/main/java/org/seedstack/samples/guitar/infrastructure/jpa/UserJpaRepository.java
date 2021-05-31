@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * UserService implementation
+ * JPA implementation for UserRepository
  */
 public class UserJpaRepository extends BaseJpaRepository<User, String> implements UserRepository {
     @Logging

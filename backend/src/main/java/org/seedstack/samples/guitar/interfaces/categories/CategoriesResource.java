@@ -17,6 +17,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Category resources.
+ * Provides category related API endpoints.
+ */
 @Path("categories")
 public class CategoriesResource {
 

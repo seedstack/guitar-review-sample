@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * User resource.
+ * Provide user related API endpoints.
+ */
 @Path("users")
 public class UsersResource {
 
